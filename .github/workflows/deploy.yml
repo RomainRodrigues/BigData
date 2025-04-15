@@ -1,5 +1,5 @@
 # https://github.com/actions/deploy-pages#usage
-name: Deploy to GitHub Pages
+name: Deploy BidData Site to GitHub Pages
 on:
   workflow_dispatch:
   push:
@@ -36,6 +36,6 @@ jobs:
     # Specify runner + deployment step
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy BidData Site to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
