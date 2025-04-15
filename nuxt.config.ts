@@ -9,7 +9,9 @@ export default defineNuxtConfig({
     enabled: true,
   },
   app: {
-    baseURL: '/BigData/', // Remplacez "BigData" par le nom de votre dépôt si nécessaire
+    head: {
+      title: 'BigData',
+    },
   },
   css: ['~/assets/css/main.css'],
   compatibilityDate: '2023-10-01',
