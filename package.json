@@ -1,0 +1,24 @@
+{
+    "private": true,
+    "scripts": {
+        "build": "nuxt build",
+        "dev": "rm -rf /tmp/nitro/worker-* && nuxt dev --port 80",
+        "postinstall": "nuxt prepare",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix"
+    },
+    "dependencies": {
+        "@tailwindcss/vite": "^4.1.4",
+        "nuxt": "latest",
+        "tailwindcss": "^4.1.4",
+        "vue": "latest",
+        "vue-router": "^4.2.5"
+    },
+    "devDependencies": {
+        "@nuxt/eslint": "^0.7.6",
+        "eslint": "^9.19.0",
+        "typescript": "^5.7.3"
+    }
+}
