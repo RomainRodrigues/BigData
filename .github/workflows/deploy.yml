@@ -16,9 +16,6 @@ jobs:
           node-version: "20"
       # Pick your own package manager and build script
       - run: npm install
-      - run: |
-          # Définir la base URL pour GitHub Pages
-          echo "NUXT_APP_BASE_URL=/${GITHUB_REPOSITORY}" >> .env.production
       - run: npx nuxt build --preset github_pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
