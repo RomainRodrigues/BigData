@@ -46,27 +46,33 @@
         </p>
       </div>
 
-      <div class="bg-yellow-50 p-4 rounded-xl shadow mt-4">
+      <div class="border-t border-gray-600 pt-4 mt-4 text-sm">
         <h2 class="text-lg font-semibold mb-2">
           Échelle de comparaison
         </h2>
         <p>Données générées ici : <span class="font-mono">{{ totalData }}</span> en 30 secondes.</p>
-        <p>À l’échelle mondiale : environ <span class="font-mono">3 000 000</span> données par 30 secondes*.</p>
+        <p>À l’échelle mondiale : environ <span class="font-mono">870 000 000</span> données en 30 secondes*.</p>
         <p class="mt-2 text-xs text-gray-400 leading-tight">
           * Estimations fondées sur des statistiques mondiales comme les requêtes Google
           (<a
             href="https://www.internetlivestats.com/google-search-statistics/"
             target="_blank"
-            class="underline text-cyan-500"
+            class="underline text-blue-500"
           >source</a>)
           et des études sur le volume global de données
           (<a
             href="https://www.forbes.com/sites/bernardmarr/2018/05/21/how-much-data-do-we-create-every-day-the-mind-blowing-stats-everyone-should-read/"
             target="_blank"
-            class="underline text-cyan-500"
+            class="underline text-blue-500"
           >source</a>).
         </p>
       </div>
+
+      <NuxtLink to="/">
+        <button class="px-6 py-3 bg-blue-500 hover:bg-blue-600 transition-colors text-white font-semibold rounded shadow-md">
+          Retour à l'accueil
+        </button>
+      </NuxtLink>
     </div>
   </div>
 </template>

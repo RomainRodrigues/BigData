@@ -1,49 +1,74 @@
 # Une œuvre qui fasse une critique du Big Data
 
-## Que dit / critique / interroge mon projet à propos du Big Data ?
+## Qu’est-ce que mon projet dit / critique / interroge à propos du Big Data ?
 
-À travers ce projet, je critique la logique de suraccumulation des données dans le Big Data. Je mets en lumière un paradoxe : on produit une quantité gigantesque de données chaque jour, mais la grande majorité d’entre elles ne seront jamais utilisées. D’après une étude de Seagate et IDC, environ **90 % des données stockées ne sont jamais analysées** ([source](https://www.seagate.com/files/www-content/our-story/trends/files/idc-seagate-dataage-whitepaper.pdf)). Cela m’a amené à me poser des questions : pourquoi conserve-t-on autant ? À quoi servent réellement toutes ces données ? Est-ce justifié sur le plan écologique ou matériel ?
+Mon projet propose une critique visuelle du Big Data. Il met en lumière la surproduction massive de données et interroge leur réelle utilité. En distinguant les données utiles (comme des informations médicales, de localisation, ou de sécurité) des données inutiles (clics, logs techniques, interactions banales), le projet cherche à faire ressentir la saturation d'information que provoque cette accumulation constante.
 
-Mon projet cherche donc à provoquer une réflexion sur ce déséquilibre entre **quantité et utilité** de la donnée.
+Je pose la question suivante : que reste-t-il de l’information véritable dans un océan de bruit numérique ?
+
+---
 
 ## En quoi consiste mon projet ?
 
-J’ai réalisé un site web interactif avec **Nuxt 3** (basé sur Vue.js) et **Tailwind CSS v4**. Sur ce site, des blocs de données apparaissent en continu. Certains sont considérés comme *utiles* (fond vert), d'autres *inutiles* (fond rouge). Les contenus sont variés : symboles, chiffres, fragments de texte générés aléatoirement.
+Il s’agit d’une expérience interactive sous forme de site web développé avec Nuxt 3. L'utilisateur est confronté à un flux continu de blocs de données apparaissant sur l'écran pendant 30 secondes.  
+Chaque bloc représente une donnée et est coloré :
 
-Une **barre de mémoire** en bas de l’écran se remplit progressivement, simulant l’encombrement du système. Lorsqu’elle est pleine, le site entre dans un état de surcharge visuelle qui représente le "crash" du système : une métaphore du moment où la machine ne peut plus suivre.
+- **Vert** pour une donnée jugée utile
+- **Rouge** pour une donnée jugée inutile
 
-J’ai aussi intégré une **légende en bas à droite** pour expliquer la signification des couleurs et des éléments, sans avoir besoin de texte explicatif direct sur chaque bloc.
+La cadence augmente progressivement, simulant l’emballement de la production de données.  
+Une **barre temporelle** se remplit à mesure que l'expérience avance.  
+À la fin, un **écran de synthèse** affiche des statistiques récapitulatives : nombre total de données, répartition utile/inutile, pourcentage, et surtout une mise à l’échelle pour représenter ce que cela signifierait dans le monde réel.
 
-## Quels sont les choix techniques et esthétiques que j’ai mis en œuvre ?
+---
 
-Techniquement, j’ai choisi **Nuxt 3** pour la simplicité du développement frontend avec Vue et pour ses capacités SSR (même si je n’en utilise pas toutes ici). **Tailwind CSS v4** m’a permis d’aller vite dans le design tout en gardant une esthétique sobre.
+## Quels sont les choix techniques et esthétiques mis en œuvre ?
 
-Visuellement, j’ai volontairement gardé une interface minimaliste avec un fond neutre, pour que l’attention se porte uniquement sur le flux de données. Le rythme d’apparition des blocs est assez rapide pour créer une sensation de saturation.
+Le projet utilise :
+- **Nuxt 3** (framework Vue.js) pour la structure de l’application
+- **Tailwind CSS v4** pour le style rapide, minimaliste et responsive
+- Une animation d’apparition progressive et aléatoire des blocs, avec opacité, taille et mouvement pour donner une sensation organique
 
-Le **code** gère dynamiquement la génération de blocs avec différentes données, et l’**opacité varie en fonction de leur utilité**. Cela permet une lecture visuelle intuitive de la critique : plus les blocs sont "inutiles", plus ils sont transparents – ou dans la dernière version, ils apparaissent clairement en rouge pour renforcer le contraste.
+Visuellement, le fond est noir pour faire ressortir les blocs colorés.  
+Les statistiques sont affichées de manière sobre dans des encadrés semi-transparents, renforçant la lisibilité sans rompre l'ambiance.  
+Une barre temporelle permet de visualiser le temps restant, avec une animation de remplissage fluide.
 
-## Quelles sont les pistes abandonnées, pourquoi les ai-je laissées tomber ? Pourquoi mes choix sont-ils les bons ?
+---
 
-Au début, j’ai pensé à faire une **infographie statique**, ou une **timeline interactive** des données numériques. Mais ces formats n’étaient pas assez immersifs. J’ai aussi essayé d’intégrer des textes explicatifs dans chaque bloc, mais ça surchargeait visuellement l’œuvre et détournait de l’idée principale.
+## Quelles sont les pistes abandonnées, pourquoi les avez-vous laissées tomber ? Pourquoi vos choix sont les bons ?
 
-Le site web interactif permet une **expérience plus directe** : l’utilisateur ressent le trop-plein, il voit la mémoire saturer, il vit littéralement le déséquilibre.
+J’avais envisagé un **crash graphique**, avec effet glitch à la fin de l'expérience, mais cela donnait une impression trop dramatique.  
+J’ai préféré une **fin claire et structurée** avec des **statistiques** pour renforcer la dimension analytique du projet.
 
-## Est-ce que je doute ? Oui, et c’est plutôt bon signe.
+Ce choix me semble plus juste : il recentre la réflexion sur les données plutôt que sur une esthétique de l’effondrement.
 
-Je me suis souvent demandé si le message était assez clair **sans explication explicite**. Est-ce que les visiteurs vont comprendre que ce que je montre est une critique ? Est-ce qu’ils vont ressentir un vrai malaise face au flot de données ? Ou vont-ils juste trouver ça "beau" ou "amusant" sans aller plus loin ?
+---
 
-Mais je pense que ce doute fait partie du processus artistique. Laisser un peu d’interprétation est aussi une force.
+## Est-ce que je doute ? Oui, et c’est normal.
 
-## Ma démarche en résumé
+Je doute de la manière dont l'utilisateur percevra la frontière entre données utiles et inutiles.  
+Je doute aussi de la puissance critique de l’interface : est-ce qu'elle provoque une vraie prise de conscience ? ou seulement une curiosité visuelle ?  
+Mais ces doutes m'ont permis d’améliorer l’expérience : rendre la légende plus visible, ajuster les animations, ajouter une synthèse finale.
 
-Je veux montrer quelque chose d’abstrait – la donnée – de manière sensible et concrète. Ce projet est donc **une métaphore visuelle** de ce qu’on vit dans le monde numérique actuel : trop de données, pas assez de sens, et une infrastructure qui ne suit pas toujours.
+Je pense que mon œuvre est plus percutante maintenant grâce à ces questionnements.
 
-Ce n’est pas un rejet complet du Big Data, mais une **mise en question de son usage intensif et souvent non maîtrisé**. En filigrane, je questionne aussi les impacts environnementaux (via le stockage) et cognitifs (via la surcharge d'information).
+---
 
-## Références utilisées
+## Les sources utilisées pour les statistiques de la fin
 
-- IDC & Seagate, *Data Age 2025* – [lien du rapport](https://www.seagate.com/files/www-content/our-story/trends/files/idc-seagate-dataage-whitepaper.pdf)  
-- Forbes, “Only 2% of all data is saved” – [article](https://www.forbes.com/sites/gilpress/2016/03/23/how-much-data-do-we-create-every-day/?sh=19a2584162d9)  
-- TechJury, “How Much Data Is Created Every Day?” – [lien](https://techjury.net/blog/how-much-data-is-created-every-day/)  
-- Bernard Marr, *Big Data in Practice*, Wiley, 2016
+Pendant les 30 secondes de l’expérience, environ **730 blocs** sont générés.  
+Dans la réalité, on estime que :
 
+> Plus de **2.5 quintillions d’octets** sont créés chaque jour (source : [Forbes](https://www.forbes.com/sites/bernardmarr/2018/05/21/how-much-data-do-we-create-every-day-the-mind-blowing-stats-everyone-should-read/)),  
+> soit **environ 870 millions de nouvelles données** toutes les 30 secondes (source : extrapolation via [Internet Live Stats](https://www.internetlivestats.com)).
+
+Mon projet en affiche à peine un millième, ce qui montre à quel point le phénomène est **massif, continu, et insaisissable**.
+
+---
+
+## Conclusion
+
+Cette œuvre propose une expérience critique et immersive du Big Data.  
+Elle met en tension la perception individuelle et la réalité globale de la production de données.  
+L’utilisateur vit un **débordement visuel**, puis une **prise de recul chiffrée**.  
+C’est une tentative de rendre visible l’invisible, et de provoquer une réflexion personnelle sur la quantité, la valeur et la lisibilité de nos données numériques.
