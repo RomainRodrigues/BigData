@@ -1,12 +1,14 @@
 <template>
   <div class="relative w-full h-screen bg-black overflow-hidden">
     <!-- Bloc de données (uniquement pendant l'expérience) -->
-    <DataBlock
-      v-for="block in blocks"
-      v-if="!experienceEnded"
-      :key="block.id"
-      v-bind="block"
-    />
+
+    <template v-if="!experienceEnded">
+      <DataBlock
+        v-for="block in blocks"
+        :key="block.id"
+        v-bind="block"
+      />
+    </template>
 
     <!-- Statistiques -->
     <div
