@@ -10,29 +10,31 @@
       />
     </template>
 
-    <!-- Statistiques -->
-    <div
-      v-if="!experienceEnded"
-      class="absolute top-0 left-0 p-4 text-white text-sm z-50 bg-black/60 rounded"
-    >
-      <p>Total : {{ blocks.length }}</p>
-      <p>Utiles : {{ usefulCount }}</p>
-      <p>Inutiles : {{ blocks.length - usefulCount }}</p>
-    </div>
+    <div class="absolute top-0 left-0 flex flex-col gap-1">
+      <!-- Statistiques -->
+      <div
+        v-if="!experienceEnded"
+        class="px-4 py-1 text-white text-sm z-50 bg-black rounded"
+      >
+        <p>Total : {{ blocks.length }}</p>
+        <p>Utiles : {{ usefulCount }}</p>
+        <p>Inutiles : {{ blocks.length - usefulCount }}</p>
+      </div>
 
-    <!-- Légende -->
-    <div
-      v-if="!experienceEnded"
-      class="absolute bottom-12 right-4 text-white text-xs z-50 bg-black/50 p-2 rounded"
-    >
-      <p>
-        <span class="inline-block w-3 h-3 bg-green-400 mr-2 rounded-sm" />
-        Donnée utile
-      </p>
-      <p>
-        <span class="inline-block w-3 h-3 bg-red-400 mr-2 rounded-sm" />
-        Donnée inutile
-      </p>
+      <!-- Légende -->
+      <div
+        v-if="!experienceEnded"
+        class="text-white text-xs z-50 bg-black px-4 py-1 rounded"
+      >
+        <p>
+          <span class="inline-block w-3 h-3 bg-green-400 mr-2 rounded-sm" />
+          Donnée utile
+        </p>
+        <p>
+          <span class="inline-block w-3 h-3 bg-red-400 mr-2 rounded-sm" />
+          Donnée inutile
+        </p>
+      </div>
     </div>
 
     <!-- Barre de temps (pleine largeur) -->
