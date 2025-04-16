@@ -1,21 +1,28 @@
 <template>
   <div class="relative w-full h-screen bg-black overflow-hidden">
-    <!-- Bloc de données -->
+    <!-- Bloc de données (uniquement pendant l'expérience) -->
     <DataBlock
       v-for="block in blocks"
+      v-if="!experienceEnded"
       :key="block.id"
       v-bind="block"
     />
 
     <!-- Statistiques -->
-    <div class="absolute top-0 left-0 p-4 text-white text-sm z-50 bg-black/60 rounded">
+    <div
+      v-if="!experienceEnded"
+      class="absolute top-0 left-0 p-4 text-white text-sm z-50 bg-black/60 rounded"
+    >
       <p>Total : {{ blocks.length }}</p>
       <p>Utiles : {{ usefulCount }}</p>
       <p>Inutiles : {{ blocks.length - usefulCount }}</p>
     </div>
 
     <!-- Légende -->
-    <div class="absolute bottom-12 right-4 text-white text-xs z-50 bg-black/50 p-2 rounded">
+    <div
+      v-if="!experienceEnded"
+      class="absolute bottom-12 right-4 text-white text-xs z-50 bg-black/50 p-2 rounded"
+    >
       <p>
         <span class="inline-block w-3 h-3 bg-green-400 mr-2 rounded-sm" />
         Donnée utile
@@ -26,41 +33,35 @@
       </p>
     </div>
 
-    <!-- Barre mémoire -->
-    <div class="absolute bottom-0 left-0 w-full h-4 bg-gray-700">
+    <!-- Barre de temps (pleine largeur) -->
+    <div
+      v-if="!experienceEnded"
+      class="absolute bottom-0 left-0 w-full h-2 bg-gray-700 overflow-hidden"
+    >
       <div
-        class="h-full transition-all duration-300 ease-in-out"
-        :class="{
-          'bg-green-400': usagePercent < 50,
-          'bg-yellow-400': usagePercent >= 50 && usagePercent < 80,
-          'bg-red-500': usagePercent >= 80,
-        }"
-        :style="{ width: usagePercent + '%' }"
+        class="h-full bg-blue-500 transition-all duration-100 linear"
+        :style="{ width: progressBarWidth + '%' }"
       />
     </div>
 
-    <!-- Écran de crash -->
-    <SystemCrash v-if="isCrashed" />
+    <!-- Résumé de fin -->
+    <ExperienceSummary
+      v-if="experienceEnded"
+      :total-data="blocks.length"
+      :useful-count="usefulCount"
+      :useless-count="blocks.length - usefulCount"
+    />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue'
-import DataBlock from '@/components/DataBlock.vue'
-import SystemCrash from '@/components/SystemCrash.vue'
-
 const blocks = ref([])
 const usefulCount = ref(0)
-const isCrashed = ref(false)
+const experienceEnded = ref(false)
+const progressBarWidth = ref(0)
 
 let idCounter = 0
-let interval = 1000
-
-const maxCapacity = 1000
-
-const usagePercent = computed(() =>
-  Math.min((blocks.value.length / maxCapacity) * 100, 100),
-)
+let interval = 100 // départ rapide mais accélération ensuite
 
 const usefulData = [
   'medical record',
@@ -105,7 +106,7 @@ const uselessData = [
 ]
 
 const generateBlock = () => {
-  if (isCrashed.value) return
+  if (experienceEnded.value) return
 
   const isUseful = Math.random() < 0.1
   const text = isUseful
@@ -123,16 +124,34 @@ const generateBlock = () => {
     isUseful,
   })
 
-  if (blocks.value.length >= maxCapacity) {
-    isCrashed.value = true
-    return
+  if (interval > 40) {
+    interval *= 0.98 // accélération progressive
   }
 
-  if (interval > 100) interval *= 0.98
   setTimeout(generateBlock, interval)
+}
+
+const updateProgressBar = () => {
+  const totalDuration = 30000
+  const step = 100
+  const increment = 100 / (totalDuration / step)
+
+  const intervalId = setInterval(() => {
+    if (experienceEnded.value) {
+      clearInterval(intervalId)
+      return
+    }
+
+    progressBarWidth.value += increment
+  }, step)
 }
 
 onMounted(() => {
   generateBlock()
+  updateProgressBar()
+
+  setTimeout(() => {
+    experienceEnded.value = true
+  }, 30000)
 })
 </script>
