@@ -57,13 +57,13 @@
           (<a
             href="https://www.internetlivestats.com/google-search-statistics/"
             target="_blank"
-            class="underline"
+            class="underline text-cyan-500"
           >source</a>)
           et des études sur le volume global de données
           (<a
             href="https://www.forbes.com/sites/bernardmarr/2018/05/21/how-much-data-do-we-create-every-day-the-mind-blowing-stats-everyone-should-read/"
             target="_blank"
-            class="underline"
+            class="underline text-cyan-500"
           >source</a>).
         </p>
       </div>
@@ -83,9 +83,3 @@ const uselessPercentage = computed(() => {
   return Math.round((props.uselessCount / props.totalData) * 100)
 })
 </script>
-
-<style scoped>
-a {
-  color: #93c5fd;
-}
-</style>
