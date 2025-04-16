@@ -83,3 +83,9 @@ const uselessPercentage = computed(() => {
   return Math.round((props.uselessCount / props.totalData) * 100)
 })
 </script>
+
+<style scoped>
+a {
+  color: #93c5fd;
+}
+</style>
