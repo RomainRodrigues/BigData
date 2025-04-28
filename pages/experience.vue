@@ -14,17 +14,17 @@
       <!-- Statistiques -->
       <div
         v-if="!experienceEnded"
-        class="px-4 py-1 text-white text-sm z-50 bg-black rounded"
+        class="px-4 py-1 text-white text-sm z-50 bg-blue-500 rounded"
       >
         <p>Total : {{ blocks.length }}</p>
-        <p>Utiles : {{ usefulCount }}</p>
-        <p>Inutiles : {{ blocks.length - usefulCount }}</p>
+        <p>Données Utiles : {{ usefulCount }}</p>
+        <p>Données Inutiles : {{ blocks.length - usefulCount }}</p>
       </div>
 
       <!-- Légende -->
       <div
         v-if="!experienceEnded"
-        class="text-white text-xs z-50 bg-black px-4 py-1 rounded"
+        class="text-white text-xs z-50 bg-blue-500 px-4 py-1 rounded"
       >
         <p>
           <span class="inline-block w-3 h-3 bg-green-400 mr-2 rounded-sm" />
@@ -112,7 +112,7 @@ const uselessData = [
 const generateBlock = () => {
   if (experienceEnded.value) return
 
-  const isUseful = Math.random() < 0.1
+  const isUseful = Math.random() < 0.15
   const text = isUseful
     ? usefulData[Math.floor(Math.random() * usefulData.length)]
     : uselessData[Math.floor(Math.random() * uselessData.length)]
